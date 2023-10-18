@@ -1,0 +1,25 @@
+def listarPersonas():
+    lista_dni = open("dni.txt", "r", encoding="utf8")
+    lista_nombre = open("nombre.txt", "r" , encoding="utf8")
+    lista_apellido = open("apellido.txt", "r" , encoding="utf8")
+    print("")
+    print("DNI\t\t\tNombre\t\t\tApellido")
+    print("=======================================================================")
+    for dni, nombre, apellido in zip(lista_dni, lista_nombre, lista_apellido):
+        print("{:<23} {:<23} {:<23}".format(dni.strip("\n"),nombre.strip("\n"),apellido.strip("\n")))
+    print("")
+    lista_dni.close()
+    lista_nombre.close()
+    lista_apellido.close()
+
+def agregarPersona(dni, nombre, apellido):
+    lista_dni = open("dni.txt", "a", encoding="utf8")
+    lista_nombre = open("nombre.txt", "a" , encoding="utf8")
+    lista_apellido = open("apellido.txt", "a" , encoding="utf8")
+    lista_dni.write("\n"+dni)
+    lista_nombre.write("\n"+nombre)
+    lista_apellido.write("\n"+apellido)
+    lista_dni.close()
+    lista_nombre.close()
+    lista_apellido.close()
+    print("\nPersona agregada con éxito!")
